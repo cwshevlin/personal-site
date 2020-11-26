@@ -1,0 +1,15 @@
+from django.db import models
+from config import settings
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=128)
+    body = models.TextField(blank=True)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+    )
+    slug = models.SlugField(max_length=128, blank=True)
+    created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
+    updated_at = models.DateTimeField(blank=True, null=True, auto_now=True)
+    deleted_at = models.DateTimeField(blank=True, null=True)
