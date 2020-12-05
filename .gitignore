@@ -1,6 +1,7 @@
 .idea/
 secrets.txt
 secrets.yaml
+static/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
