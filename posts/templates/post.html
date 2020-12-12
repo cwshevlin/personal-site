@@ -3,6 +3,10 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-    <h2 class="post-title">{{ post.title }}</h2>
-    <p class="post-body">{{ post.body }}</p>
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-body">
+        {% autoescape off %}
+            {{ body | safe }}
+        {% endautoescape %}
+    </p>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 from .models import Post
+import markdown
 
 
 def posts(request):
@@ -13,4 +14,5 @@ def post_detail(request, slug):
         post = Post.objects.get(slug=slug)
     except Post.DoesNotExist:
         return Http404(f'Not found: {slug}')
-    return render(request, 'post.html', {'post': post})
+    body = markdown.markdown(post.body)
+    return render(request, 'post.html', {'post': post, 'body': body})
