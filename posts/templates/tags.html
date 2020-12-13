@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+{% for tag in tags %}
+<div class="tag-list-item">
+    <a href="/tags/{{ tag.name | slugify }}"><h2>{{ tag.name }}</h2></a>
+</div>
+{% endfor %}
+{% endblock %}

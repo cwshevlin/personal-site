@@ -4,6 +4,8 @@
     <title>{% block title %}Home{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    {% block styles %}
+    {% endblock %}
 </head>
 
 <body>
@@ -12,6 +14,7 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/posts">Posts</a></li>
+        <li><a href="/tags">Tags</a></li>
     </ul>
     {% endblock %}
 </div>

@@ -1,6 +1,8 @@
 from django.db import models
 from config import settings
 
+from taggit.managers import TaggableManager
+
 
 class Post(models.Model):
     title = models.CharField(max_length=128)
@@ -13,3 +15,4 @@ class Post(models.Model):
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True, auto_now=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
+    tags = TaggableManager()
