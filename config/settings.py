@@ -25,6 +25,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+environment = os.environ['ENV']
+
 INSTALLED_APPS = [
     'config',
     'posts',
@@ -74,12 +76,29 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+database_user = os.environ['DATABASE_USER']
+database_password = os.environ['DATABASE_PASSWORD']
+
+if environment == 'production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': database_user,
+            'PASSWORD': database_password,
+            'HOST': '35.238.137.113',
+            'PORT': '5432',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

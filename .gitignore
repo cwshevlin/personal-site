@@ -2,6 +2,8 @@
 secrets.txt
 secrets.yaml
 static/
+secrets/
+app.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
