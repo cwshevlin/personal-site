@@ -21,11 +21,16 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+environment = os.environ['ENV']
+
+if environment == 'production':
+    DEBUG = False
+
+# YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-environment = os.environ['ENV']
 
 INSTALLED_APPS = [
     'config',
