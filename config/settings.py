@@ -26,7 +26,7 @@ environment = os.environ['ENV']
 if environment == 'production':
     DEBUG = False
 
-# YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.
+# YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.)
 ALLOWED_HOSTS = ['*']
 
 # Application definition

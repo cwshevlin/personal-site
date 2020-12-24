@@ -19,10 +19,10 @@ from config.views import home
 from posts.views import posts, post_detail, posts_for_tag, tags
 
 urlpatterns = [
-    path('', home, name='index'),
-    path('posts', posts, name='posts'),
-    path('posts/<slug:slug>', post_detail, name='post'),
-    path('tags', tags, name='tags'),
-    path('tags/<slug:tag>', posts_for_tag, name='tagged_posts'),
+    path('', home),
+    path('posts', posts),
+    path('posts/<slug:slug>', post_detail),
+    path('tags', tags),
+    path('tags/<slug:tag>', posts_for_tag),
     path('admin/', admin.site.urls),
 ]
