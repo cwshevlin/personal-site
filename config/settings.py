@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +31,7 @@ if environment == 'production':
     DEBUG = False
 
 # YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.)
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['cwshevl.in', 'personal-site-blog.herokuapp.com']
 
 # Application definition
 
