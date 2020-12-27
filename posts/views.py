@@ -28,7 +28,7 @@ def post_detail(request, slug):
         return Http404(f'Not found: {slug}')
     body = markdown.markdown(post.body)
     post_tags = post.tags.all()
-    return HttpResponse(200)
+    return render(request, 'tags.html', {'tags': post_tags})
     # return render(request, 'post.html', {'post': post, 'body': body, 'tags': post_tags})
 
 
