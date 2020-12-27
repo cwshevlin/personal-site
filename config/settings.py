@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 environment = os.environ['ENV']
 
@@ -29,7 +29,7 @@ if environment == 'local':
     DEBUG = True
 
 # YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.)
-ALLOWED_HOSTS = ['cwshevl.in', 'personal-site-blog.herokuapp.com']
+ALLOWED_HOSTS = ['.cwshevl.in', 'personal-site-blog.herokuapp.com']
 
 # Application definition
 
