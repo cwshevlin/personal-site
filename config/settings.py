@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['.cwshevl.in', 'personal-site-blog.herokuapp.com']
 
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'config',
     'posts',
     'taggit',
