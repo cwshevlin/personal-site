@@ -28,7 +28,6 @@ environment = os.environ['ENV']
 if environment == 'local':
     DEBUG = True
 
-# YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.)
 ALLOWED_HOSTS = ['.cwshevl.in', 'personal-site-blog.herokuapp.com']
 
 # Application definition
