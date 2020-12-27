@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 environment = os.environ['ENV']
 
-if environment == 'production':
-    DEBUG = False
+if environment == 'local':
+    DEBUG = True
 
 # YOLO baybeeeeee (but also we're deploying on app engine. Change this if that is not the case.)
 ALLOWED_HOSTS = ['cwshevl.in', 'personal-site-blog.herokuapp.com']
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -91,10 +92,10 @@ if environment == 'production':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
+            'NAME': 'dfgj4hr1g2mg3q',
             'USER': database_user,
             'PASSWORD': database_password,
-            'HOST': '35.238.137.113',
+            'HOST': 'ec2-52-204-232-46.compute-1.amazonaws.com',
             'PORT': '5432',
         }
     }
@@ -148,8 +149,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
