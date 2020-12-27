@@ -17,8 +17,8 @@ def posts_for_tag(request, tag):
 
 
 def tags(request):
-    tags = Tag.objects.all()
-    return render(request, 'tags.html', {'tags': tags})
+    post_tags = Tag.objects.all()
+    return render(request, 'tags.html', {'tags': post_tags})
 
 
 def post_detail(request, slug):
@@ -27,7 +27,8 @@ def post_detail(request, slug):
     except Post.DoesNotExist:
         return Http404(f'Not found: {slug}')
     body = markdown.markdown(post.body)
-    tags = post.tags.all()
-    return render(request, 'post.html', {'post': post, 'body': body, 'tags': tags})
+    post_tags = post.tags.all()
+    return 'Hi'
+    # return render(request, 'post.html', {'post': post, 'body': body, 'tags': post_tags})
 
 
