@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 
-<!--{% block styles %}-->
-<!--{% load static %}-->
+{% block styles %}
+{% load static %}
 <!--TODO CWS-->
 <!--<link rel="stylesheet" type="text/css" href="{% static 'post.css' %}">-->
-<!--{% endblock %}-->
+{% endblock %}
 
-<!--{% block title %}{{post.title}}{% endblock %}-->
+{% block title %}{{post.title}}{% endblock %}
 
-<!--{% block content %}-->
-    <!--<h1 class="post-title">{{ post.title }}</h1>-->
-    <!--<p class="post-body">-->
-        <!--{% autoescape off %}-->
-            <!--{{ body | safe }}-->
-        <!--{% endautoescape %}-->
-    <!--</p>-->
+{% block content %}
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-body">
+        {% autoescape off %}
+            {{ body | safe }}
+        {% endautoescape %}
+    </p>
 
-<!--{% if tags %}-->
-    <!--<div class="tags">-->
-        <!--<h3>Tags</h3>-->
-        <!--{% for tag in tags %}-->
-        <!--<a class="post-tag" href="/tags/{{tag.name | slugify }}">{{ tag.name }}</a>-->
-        <!--{% endfor %}-->
-    <!--</div>-->
-<!--{% endif %}-->
-<!--{% endblock %}-->
+{% if tags %}
+    <div class="tags">
+        <h3>Tags</h3>
+        {% for tag in tags %}
+        <a class="post-tag" href="/tags/{{tag.name | slugify }}">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}
