@@ -1,27 +1,35 @@
-{% extends "base.html" %}
+<!--{% extends "base.html" %}-->
 
-{% block styles %}
+<!--{% block styles %}-->
 <!--{% load static %}-->
 <!--TODO CWS-->
 <!--<link rel="stylesheet" type="text/css" href="{% static 'post.css' %}">-->
-{% endblock %}
+<!--{% endblock %}-->
 
-{% block title %}{{post.title}}{% endblock %}
+<!--{% block title %}{{post.title}}{% endblock %}-->
 
-{% block content %}
-    <h1 class="post-title">{{ post.title }}</h1>
-    <p class="post-body">
+<!--{% block content %}-->
+    <!--<h1 class="post-title">{{ post.title }}</h1>-->
+    <!--<p class="post-body">-->
         <!--{% autoescape off %}-->
             <!--{{ body | safe }}-->
         <!--{% endautoescape %}-->
-    </p>
+    <!--</p>-->
 
-{% if tags %}
-    <div class="tags">
-        <h3>Tags</h3>
+<!--{% if tags %}-->
+    <!--<div class="tags">-->
+        <!--<h3>Tags</h3>-->
         <!--{% for tag in tags %}-->
         <!--<a class="post-tag" href="/tags/{{tag.name | slugify }}">{{ tag.name }}</a>-->
         <!--{% endfor %}-->
-    </div>
-{% endif %}
+    <!--</div>-->
+<!--{% endif %}-->
+<!--{% endblock %}-->
+{% load static %}
+
+{% block title %}Colin's Web Site{% endblock %}
+
+{% block content %}
+<h1>hi</h1>
+<p>If it's good enough for CERN, it's good enough for my blog.</p>
 {% endblock %}
