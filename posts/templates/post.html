@@ -3,11 +3,6 @@
 {% block styles %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'posts.css' %}">
-<!--<meta name="description" content="{{post.body.split('. ')[0]}}">-->
-
-<!--{% for tag in tags %}-->
-<!--<meta property="article:tag" content="{{tag.name}}">-->
-<!--{% endfor %}-->
 {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
