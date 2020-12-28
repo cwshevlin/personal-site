@@ -6,7 +6,7 @@
 {% for post in posts %}
     <div class="post-list-item">
         <a href="/posts/{{post.slug}}"><h2>{{ post.title }}</h2></a>
-        <h4>{{post.created_at}}</h4>
+        <p>{{post.created_at}}</p>
     </div>
 {% endfor %}
 {% endblock %}
