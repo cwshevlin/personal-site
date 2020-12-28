@@ -4,8 +4,9 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'posts.css' %}">
 {% for tag in tags %}
-<meta property="article:tag" content={{tag.name}} />
+<meta property="article:tag" content="{{tag.name}}" />
 {% endfor %}
+<meta property="description" content="{{post.title}}" />
 {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
