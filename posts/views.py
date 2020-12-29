@@ -1,24 +1,33 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from django.template import RequestContext
 from .models import Post
 from taggit.models import Tag
 import markdown
 
 
+def is_dark_mode_processor(request):
+    return {'dark_mode': request.GET.get('dark-mode')}
+
+
 def posts(request):
     all_posts = Post.objects.order_by('-created_at')
-    return render(request, 'posts.html', {'posts': all_posts})
+    context = {**{'posts': all_posts}, **is_dark_mode_processor(request)}
+    print(context)
+    return render(request, 'posts.html', context)
 
 
 def posts_for_tag(request, tag):
     tag = tag.replace('-', ' ')
     posts_with_tag = Post.objects.filter(tags__name__in=[tag])
-    return render(request, 'posts.html', {'posts': posts_with_tag})
+    context = {**{'posts': posts_with_tag}, **is_dark_mode_processor(request)}
+    return render(request, 'posts.html', context)
 
 
 def tags(request):
     post_tags = Tag.objects.all()
-    return render(request, 'tags.html', {'tags': post_tags})
+    context = {**{'tags': post_tags}, **is_dark_mode_processor(request)}
+    return render(request, 'tags.html', context)
 
 
 def post_detail(request, slug):
@@ -28,6 +37,7 @@ def post_detail(request, slug):
         return Http404(f'Not found: {slug}')
     body = markdown.markdown(post.body)
     post_tags = post.tags.all()
-    return render(request, 'post.html', {'post': post, 'body': body, 'tags': post_tags})
+    context = {**{'post': post, 'body': body, 'tags': post_tags}, **is_dark_mode_processor(request)}
+    return render(request, 'post.html', context)
 
 

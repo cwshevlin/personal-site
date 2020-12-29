@@ -4,6 +4,18 @@ body {
     background-color: #fafafa;
 }
 
+.dark-mode {
+    background-color: #15202b;
+    color: #fff;
+}
+
+.dark-mode a {
+    color: #1b95e0;
+}
+
+.dark-mode a:visited {
+    color: #817191;
+}
 
 #top-nav {
     overflow-x: scroll;
