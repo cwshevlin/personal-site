@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from config.views import home
+from config.views import home, toggle_dark_mode
 from posts.views import posts, post_detail, posts_for_tag, tags
 
 urlpatterns = [
     path('', home),
+    path('dark-mode/', toggle_dark_mode),
     path('posts', posts),
     path('posts/<slug:slug>', post_detail),
     path('tags', tags),

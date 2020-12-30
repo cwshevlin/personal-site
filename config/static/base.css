@@ -18,12 +18,18 @@ body {
 }
 
 #top-nav {
-    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-#top-nav > ul > li {
+#top-nav > ul > li, #top-nav > form {
     display: inline-block;
     margin-right: 2em;
+}
+
+.spacer {
+    flex: grow;
 }
 
 #content {

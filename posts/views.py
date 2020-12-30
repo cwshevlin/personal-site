@@ -1,19 +1,14 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-from django.template import RequestContext
 from .models import Post
 from taggit.models import Tag
+from config.views import is_dark_mode_processor
 import markdown
-
-
-def is_dark_mode_processor(request):
-    return {'dark_mode': request.GET.get('dark-mode')}
 
 
 def posts(request):
     all_posts = Post.objects.order_by('-created_at')
     context = {**{'posts': all_posts}, **is_dark_mode_processor(request)}
-    print(context)
     return render(request, 'posts.html', context)
 
 
