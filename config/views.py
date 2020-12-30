@@ -12,7 +12,7 @@ def home(request):
 
 
 def toggle_dark_mode(request):
-    dark_mode = 'true' if request.COOKIES.get('dark-mode', None) == 'false' else 'false'
+    dark_mode = 'true' if request.COOKIES.get('dark-mode', 'false') == 'false' else 'false'
 
     response = HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     response.set_cookie('dark-mode', dark_mode, httponly=True)
