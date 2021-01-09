@@ -3,10 +3,22 @@
 {% block styles %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'posts.css' %}">
+<meta property="description" content="{{post.description}}" />
+<meta property="author" content="{{post.author.first_name}} {{post.author.last_name}}" />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="{{post.title}}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cwshevl.in/posts/{{post.slug}}" />
+<meta property="og:description" content="{{post.description}}" />
+<meta property="og:site_name" content="Colin's Web Site" />
+<meta property="article:published_time" content="{{post.created_at}}" />
+<meta property="article:modified_time" content="{{post.updated_at}}" />
+
 {% for tag in tags %}
 <meta property="article:tag" content="{{tag.name}}" />
 {% endfor %}
-<meta property="description" content="{{post.title}}" />
+
 {% endblock %}
 
 {% block title %}{{post.title}}{% endblock %}
