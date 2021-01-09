@@ -23,18 +23,19 @@ body {
     justify-content: space-between;
 }
 
-#top-nav > ul > li, #top-nav > form {
+#top-nav > ul > li {
     display: inline-block;
     margin-right: 2em;
 }
 
-.spacer {
-    flex: grow;
+#top-nav > ul, #top-nav > form {
+    display: inline-block;
+    padding: 0;
+    margin: 1em;
 }
 
-#top-nav > form {
-    display: inline-block;
-    margin: 1em;
+.spacer {
+    flex: grow;
 }
 
 #content {
