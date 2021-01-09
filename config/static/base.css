@@ -32,6 +32,11 @@ body {
     flex: grow;
 }
 
+#top-nav > form {
+    display: inline-block;
+    margin: 1em;
+}
+
 #content {
     margin: 0 auto;
     max-width: 500px;
