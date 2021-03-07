@@ -4,17 +4,18 @@ from .models import Post
 from taggit.models import Tag
 from config.views import is_dark_mode_processor
 import markdown
+from datetime import datetime
 
 
 def posts(request):
-    all_posts = Post.objects.order_by('-created_at')
+    all_posts = Post.objects.exclude(deleted_at__lt=datetime.now()).order_by('-created_at')
     context = {**{'posts': all_posts}, **is_dark_mode_processor(request)}
     return render(request, 'posts.html', context)
 
 
 def posts_for_tag(request, tag):
     tag = tag.replace('-', ' ')
-    posts_with_tag = Post.objects.filter(tags__name__in=[tag])
+    posts_with_tag = Post.objects.exclude(deleted_at__lt=datetime.now()).filter(tags__name__in=[tag])
     context = {**{'posts': posts_with_tag}, **is_dark_mode_processor(request)}
     return render(request, 'posts.html', context)
 
@@ -27,7 +28,7 @@ def tags(request):
 
 def post_detail(request, slug):
     try:
-        post = Post.objects.get(slug=slug)
+        post = Post.objects.exclude(deleted_at__lt=datetime.now()).get(slug=slug)
     except Post.DoesNotExist:
         return Http404(f'Not found: {slug}')
     body = markdown.markdown(post.body)
