@@ -43,9 +43,12 @@ body {
     max-width: 500px;
 }
 
+p {
+    font-size: 1.2em;
+}
+
 img {
     margin: 0 auto;
     display: block;
 }
 
-/* What */
