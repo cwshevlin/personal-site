@@ -6,7 +6,10 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
+    environment:
+      - "ENV=local"
+      - "SECRET_KEY=${SECRET_KEY}"
+      - "DATABASE_USER=postgres"
+      - "DATABASE_PASSWORD=postgres"
     ports:
       - "8000:8000"
-    depends_on:
-      - db
