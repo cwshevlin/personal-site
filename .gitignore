@@ -2,8 +2,11 @@
 secrets.txt
 secrets.yaml
 static/
-staticfiles/
-!staticfiles/root/
+staticfiles/admin/
+staticfiles/*.html
+staticfiles/*.css
+staticfiles/*.gz
+staticfiles/*.json
 secrets/
 app.yaml
 db.sqlite3
