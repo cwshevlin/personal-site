@@ -3,6 +3,7 @@ secrets.txt
 secrets.yaml
 static/
 staticfiles/
+!staticfiles/root/
 secrets/
 app.yaml
 db.sqlite3

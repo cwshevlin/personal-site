@@ -33,7 +33,6 @@
 
 {% if tags %}
     <footer class="tags">
-        <h4>tags</h4>
         {% for tag in tags %}
         <a class="post-tag" href="/tags/{{tag.name | slugify }}">{{ tag.name }}</a>
         {% endfor %}
