@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 environment = os.environ['ENV']
 
@@ -31,7 +31,6 @@ if environment == 'local':
 ALLOWED_HOSTS = ['.cwshevl.in', 'personal-site-blog.herokuapp.com']
 
 # Application definition
-
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -58,7 +57,12 @@ MIDDLEWARE = [
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 SECURE_SSL_REDIRECT = True
+
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
 
 ROOT_URLCONF = 'config.urls'
 
