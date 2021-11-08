@@ -5,7 +5,7 @@
 {% block content %}
 {% for tag in tags %}
 <div class="tag-list-item">
-    <a href="/tags/{{ tag.name | slugify }}"><h2>{{ tag.name }}</h2></a>
+    <a href="/tags/{{ tag.name | slugify }}"><p>{{ tag.name }}</p></a>
 </div>
 {% endfor %}
 {% endblock %}

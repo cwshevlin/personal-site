@@ -1,0 +1,31 @@
+[
+  {
+    "model": "auth.User",
+    "pk": 1,
+    "fields": {
+      "is_superuser": true,
+      "username": "admin",
+      "password": "corn-pamphlet-ROUE"
+    }
+  },
+  {
+    "model": "posts.Post",
+    "pk": 1,
+    "fields": {
+      "title": "a blog post",
+      "body": "I'm trying to get better at pixel art and it's been pretty challenging. There's so much talent on the internet that it can be overwhelming. The latest work that really impressed me was [Danielle Baskin's incredible Bay Area landscapes](https://twitter.com/djbaskin/status/1456365036947992585). It's something that I would like to get better at, despite the steep learning curve.\n\nTo that end, I've started to make some of the assets for Tynan and my forthcoming beach ball fighting game Beach Ball-Stars. So far, I have the animation for the beach ball done:\n\n![1-bit beach ball](https://i.imgur.com/Fws13xo.png)\n\nIt's not much but it's a start.\n\nI've been using [Aseprite](https://www.aseprite.org/) for pixel art and it's been so fun. It's been super easy to find everything I need and it's been easy to develop muscle memory for the shortcuts I need most. I also was impressed with the support for animating sprites, which obviously is very important in a beach ball fighting game. One day I will use it for a color image, but for now I'm going to be working in 1-bit. \n\nNext steps are going to be drawing a stage and getting physics working for the game.",
+      "description": "a blog post",
+      "slug": "a blog post",
+      "author_id": 1,
+      "created_at": "2021-11-08T20:52:17Z"
+    }
+  },
+  {
+    "model": "taggit.Tag",
+    "pk": 1,
+    "fields": {
+      "name": "tag",
+      "slug": "tag"
+    }
+  }
+]

@@ -21,7 +21,7 @@ def posts_for_tag(request, tag):
 
 
 def tags(request):
-    post_tags = Tag.objects.all()
+    post_tags = Tag.objects.order_by('name')
     context = {**{'tags': post_tags}, **is_dark_mode_processor(request)}
     return render(request, 'tags.html', context)
 
