@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from config.views import home, toggle_dark_mode
 from posts.views import posts, post_detail, posts_for_tag, tags
-from .sitemaps import PostSitemap
+from .sitemaps import PostSitemap, StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
 
 urlpatterns = [
@@ -30,7 +30,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap,
          {'sitemaps': {
-             'posts': PostSitemap
+             'posts': PostSitemap,
+             'static': StaticViewSitemap
          }},
          name='django.contrib.sitemaps.views.sitemap'),
 ]
