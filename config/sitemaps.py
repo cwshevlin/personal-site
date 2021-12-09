@@ -1,7 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from posts.models import Post
 from datetime import datetime
-from django.urls import reverse
 
 
 class PostSitemap(Sitemap):
@@ -26,4 +25,4 @@ class StaticViewSitemap(Sitemap):
         return ['tags', 'posts']
 
     def location(self, obj):
-        return reverse(obj)
+        return f'/{obj}'
