@@ -1,10 +1,11 @@
 from django.contrib.sitemaps import Sitemap
 from posts.models import Post
 from datetime import datetime
+from django.urls import reverse
 
 
 class PostSitemap(Sitemap):
-    changefreq = "never"
+    changefreq = 'yearly'
     priority = 0.5
 
     def items(self):
@@ -15,3 +16,14 @@ class PostSitemap(Sitemap):
 
     def location(self, obj):
         return f'/posts/{obj.slug}'
+
+
+class StaticViewSitemap(Sitemap):
+    changefreq = 'weekly'
+    priority = 0.5
+
+    def items(self):
+        return ['tags', 'posts']
+
+    def location(self, obj):
+        return reverse(obj)

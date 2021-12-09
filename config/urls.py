@@ -29,6 +29,8 @@ urlpatterns = [
     path('tags/<slug:tag>', posts_for_tag),
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap,
-         {'sitemaps': {'posts': PostSitemap}},
+         {'sitemaps': {
+             'posts': PostSitemap
+         }},
          name='django.contrib.sitemaps.views.sitemap'),
 ]
