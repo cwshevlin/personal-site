@@ -28,7 +28,7 @@ urlpatterns = [
     path('tags', tags),
     path('tags/<slug:tag>', posts_for_tag),
     path('admin/', admin.site.urls),
-    path('feed/', LatestPostsFeed())
+    path('feed/', LatestPostsFeed()),
     path('sitemap.xml', sitemap,
          {'sitemaps': {
              'posts': PostSitemap,
