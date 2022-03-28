@@ -17,3 +17,6 @@ class Post(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True, auto_now=True)
     deleted_at = models.DateTimeField(blank=True, null=True)
     tags = TaggableManager()
+
+    def get_absolute_url(self):
+        return f"/posts/{self.slug}"

@@ -44,13 +44,10 @@ class LatestPostsFeed(Feed):
     description = "Updates on new posts added."
 
     def items(self):
-        return Post.objects.order_by('-created_at')[:5]
+        return Post.objects.exclude(deleted_at__lt=datetime.now()).order_by('-created_at')
 
     def item_title(self, item):
         return item.title
 
     def item_description(self, item):
         return item.description
-
-    def item_link(self, item):
-        return reverse('posts', args=[item.slug])
