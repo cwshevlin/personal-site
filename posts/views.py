@@ -5,6 +5,8 @@ from taggit.models import Tag
 from config.views import is_dark_mode_processor
 import markdown
 from datetime import datetime
+from django.contrib.syndication.views import Feed
+from django.urls import reverse
 
 
 def posts(request):
@@ -36,4 +38,19 @@ def post_detail(request, slug):
     context = {**{'post': post, 'body': body, 'tags': post_tags}, **is_dark_mode_processor(request)}
     return render(request, 'post.html', context)
 
+class LatestPostsFeed(Feed):
+    title = "Colin Shevlin's latests posts"
+    link = "/feed/"
+    description = "Updates on new posts added."
 
+    def items(self):
+        return Post.objects.order_by('-created_at')[:5]
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.description
+
+    def item_link(self, item):
+        return reverse('posts', args=[item.slug])

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from config.views import home, toggle_dark_mode
-from posts.views import posts, post_detail, posts_for_tag, tags
+from posts.views import posts, post_detail, posts_for_tag, tags, LatestPostsFeed
 from .sitemaps import PostSitemap, StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('tags', tags),
     path('tags/<slug:tag>', posts_for_tag),
     path('admin/', admin.site.urls),
+    path('feed/', LatestPostsFeed())
     path('sitemap.xml', sitemap,
          {'sitemaps': {
              'posts': PostSitemap,
